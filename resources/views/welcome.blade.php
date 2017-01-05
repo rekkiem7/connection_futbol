@@ -13,7 +13,8 @@
         <style>
         body{
         background-image:url('futbol.jpg');
-        background-repeat:no-repeat;
+        background-repeat:repeat;
+        background-size:15%;
         }
         </style>
         <!-- Styles -->
