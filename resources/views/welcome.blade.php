@@ -6,9 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
-        <!-- Fonts -->
-
         @include('librerias')
         <style>
         body{
@@ -17,93 +14,16 @@
         background-size:15%;
         }
         </style>
-        <!-- Styles -->
-      <!--  <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>-->
+    
     </head>
-    <body><!--
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>-->
-    @extends('layouts.app')
-
-    @section('content')
+    <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-8 col-md-offset-2 animated fadeInDown">
                     <div class="login-logo">
                         <a href="#" style="color:#ffffff"><b ><img src="{{asset('EntreLigas.png')}}" width="40%"/></b></a>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading">Iniciar Sesión</div>
                         <div class="panel-body">
 
@@ -143,19 +63,23 @@
                                         Ingresar&nbsp;&nbsp;<span class="glyphicon glyphicon-log-in"></span>
                                     </button>
                                     <a href="{{ url('/auth/facebook') }}" class="btn btn-social btn-facebook btn-flat">Iniciar sesión con
-                                        Facebook</a><br>
-
-                                    <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                        ¿Olvidaste la contraseña?
-                                    </a>
+                                        Facebook</a><br><br>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                            <button class="btn btn-primary btn-block">Registrarse&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></button><br>
+                                   <center> <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                        ¿Olvidaste la contraseña?
+                                    </a></center>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    @endsection
+
     </body>
 </html>
 <script>
