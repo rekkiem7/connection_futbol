@@ -58,20 +58,27 @@
                                 </div>
                             </form>
                             <div class="form-group">
-                                <div class="col-md-8 col-md-offset-4">
+                                <div class="col-md-6 col-md-offset-4">
                                     <button type="button" class="btn btn-success" onclick="login();">
-                                        Ingresar&nbsp;&nbsp;<span class="glyphicon glyphicon-log-in"></span>
+                                        Ingresar&nbsp;&nbsp;<i class="fa fa-key"></i>
                                     </button>
-                                    <a href="{{ url('/auth/facebook') }}" class="btn btn-social btn-facebook btn-flat">Iniciar sesión con
-                                        Facebook</a><br><br>
+                                     <button class="btn btn-primary">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button><br><br>
+                                    <a class="btn  btn-social btn-block btn-facebook" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-facebook"></i> Ingresar con Facebook
+                                  </a><br><a class="btn  btn-social btn-block btn-twitter" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-twitter"></i> Ingresar con twitter
+                                  </a><br>
+                                  <a class="btn  btn-social btn-block btn-google" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-google"></i> Ingresar con google
+                                  </a>
                                 </div>
                             </div>
                             <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                            <button class="btn btn-primary btn-block">Registrarse&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></button><br>
                                    <center> <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                         ¿Olvidaste la contraseña?
-                                    </a></center>
+                                    </a></center><br>
+                                    
                             </div>
                             </div>
                         </div>
