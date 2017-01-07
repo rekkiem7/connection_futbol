@@ -7,6 +7,7 @@
 <link href="{{asset('bootstrap/assets/css/font-awesome.css')}}" rel="stylesheet">
 <link href="{{asset('bootstrap/assets/css/docs.css')}}" rel="stylesheet" >
 <link href="{{asset('bootstrap/bootstrap-social.css')}}" rel="stylesheet" >
+<link href="{{asset('css/style.css')}}" rel="stylesheet" >
 <link href="{{ asset('/template/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/template/dist/css/skins/_all-skins.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/template/dist/css/skins/_all-skins.min.css')}}" rel="stylesheet" type="text/css" />

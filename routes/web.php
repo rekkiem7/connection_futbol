@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::get('maqueta', function () {
     return view('profile');
 });
-
+Route::get('submenu', function () {
+    return view('submenu');
+});
 
 Auth::routes();
 

@@ -3,12 +3,22 @@
 //VARIABLES
 @import "variable";
 
-
 body{
-	background-color:$white;
+	background-color:$lowsilver;
 	font-family:"open-sans" serif;
 }
-
+.container{
+	background-color:$white;	
+	height:800px;
+}
+.submenu{
+	padding:10px 0 10px 0;
+	height:30px;
+	background-color:$red;
+	position:fixed;
+	top:0;
+}
+	
 @media (max-width: 1280px) {
 
 }
