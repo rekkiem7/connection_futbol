@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('maqueta', function () {
+    return view('profile');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

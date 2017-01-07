@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACQ,wEAAgE,CAKxE,IAAI,CACH,gBAAgB,CCNV,IAAO,CDOb,WAAW,CAAC,iBAAiB",
+"sources": ["../../resources/assets/sass/style.scss","../../resources/assets/sass/variable.scss"],
+"names": [],
+"file": "style.css"
+}
