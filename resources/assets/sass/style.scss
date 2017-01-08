@@ -1,8 +1,8 @@
 //FONTS
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 //VARIABLES
-@import "variable";
 
+@import "variable";
 body{
 	background-color:$lowsilver;
 	font-family:"open-sans" serif;
@@ -11,13 +11,57 @@ body{
 	background-color:$white;	
 	height:800px;
 }
-.submenu{
-	padding:10px 0 10px 0;
-	height:30px;
-	background-color:$red;
+.mainmenu{
+	height:70px;
+	background-color:$white;
+	top:26px;
 	position:fixed;
+	left:113px;
+}
+.mainmenu ul{
+	display:block;
+}
+.mainmenu ul li{
+	display:inline-block;
+	float:right;
+	padding:10px 10px;
+}
+.mainmenu ul li a{
+
+}
+.mainmenu ul li a p{
+	font-size:16px;
+
+}
+.mainmenu ul li a p:hover{
+
+}
+.submenu{
+	padding:5px;
+	height:25px;
+	background-color:$darksilver;
+	position:fixed;
+	left:113px;
 	top:0;
 }
+.submenu ul{
+	float:right;
+	display:block;
+}
+.submenu ul li{
+	display:inline-block;
+
+}
+.submenu ul li a{
+
+}
+.submenu ul li a p{
+	color:$white;
+}
+.submenu ul li a p:hover{
+	color:$lowsilver;
+}
+	
 	
 @media (max-width: 1280px) {
 

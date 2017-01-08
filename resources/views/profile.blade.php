@@ -11,8 +11,10 @@
 	<div class="col-lg-1"></div>
 <!--Sólo ocupar este div-->	
 	<div class="col-lg-10 container">
-		      @yield('submenu')
+		     @extends('submenu.submenu')
+		     @extends('submenu.principalmenu')	
 	</div>
+
 <!--No ocupar este div-->
 	<div class="col-lg-1"></div>
 </div>
