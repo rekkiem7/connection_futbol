@@ -15,7 +15,7 @@ class MailController extends Controller
        \Mail::send('emails.message', $data, function($message) use ($request)
        {
            //remitente
-           $message->from($request->email, $request->name);
+           $message->from('entreligasfc@email.com','EntreLigasFC');
  
            //asunto
            $message->subject($request->subject);

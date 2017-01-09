@@ -12,7 +12,7 @@
                <h4>Tu mensaje ha sido enviado, pronto responderemos a tu solicitud.</h4>
              </div>
              <div class="panel-footer">
-                 <a href="{{ route('email') }}" class="btn btn-primary btn-xs">Volver</a>
+                 <a href="{{ route('contact') }}" class="btn btn-primary btn-xs">Volver</a>
                </div>
            </div>
         </div>
