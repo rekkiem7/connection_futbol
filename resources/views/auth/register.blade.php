@@ -20,7 +20,10 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8 col-md-offset-2 animated fadeInDown">
+            <div class="login-logo">
+                <a href="#" style="color:#ffffff"><b ><img src="{{asset('EntreLigas.png')}}" width="40%"/></b></a>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">Registrar</div>
                 <div class="panel-body">
