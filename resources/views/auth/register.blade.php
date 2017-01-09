@@ -128,3 +128,6 @@
 </div>
 </body>
 </html>
+<script>
+    $('#rut').Rut();
+</script>

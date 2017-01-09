@@ -13,5 +13,6 @@
 <link href="{{ asset('/template/dist/css/skins/_all-skins.min.css')}}" rel="stylesheet" type="text/css" />
 <script src="{{ asset ('/template/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <script src="{{ asset ('/template/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-
+<script src="{{ asset ('/template/plugins/rutjs/jquery.Rut.js') }}"></script>
+<script src="{{ asset ('/template/plugins/rutjs/jquery.Rut.min.js') }}"></script>
  
