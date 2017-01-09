@@ -34,7 +34,7 @@
                                     <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                        <input id="email" type="email" class="form-control" name="email" placeholder="Ingresa tu email (Ejemplo: email@dominio.com)" value="{{ old('email') }}" required autofocus>
 
                                         @if ($errors->has('email'))
                                             <span class="help-block">
@@ -47,7 +47,7 @@
                                     <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control" name="password" required>
+                                        <input id="password" type="password" class="form-control" placeholder="Ingresa tu contraseña secreta" name="password" required>
 
                                         @if ($errors->has('password'))
                                             <span class="help-block">
@@ -72,14 +72,14 @@
                                     </button>
                                      <button class="btn btn-primary" onclick="register();">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button><br><br>
                                    <strong>¡Ingresa con tus Redes Sociales!</strong><br>
-                                    <a class="btn  btn-social  btn-facebook" href="{{url('auth/facebook')}}">
+                                    <a class="btn  btn-social btn-block btn-facebook" href="{{url('auth/facebook')}}">
                                     <i class="fa fa-facebook"></i>Facebook
-                                  </a>&nbsp;<a class="btn  btn-social  btn-twitter" href="{{url('auth/facebook')}}">
+                                  </a><!--&nbsp;<a class="btn  btn-social  btn-twitter" href="{{url('auth/facebook')}}">
                                     <i class="fa fa-twitter"></i>Twitter
                                   </a>&nbsp;
                                   <a class="btn  btn-social btn-google" href="{{url('auth/facebook')}}">
                                     <i class="fa fa-google"></i>Google
-                                  </a>
+                                  </a>-->
                                 </div>
                             </div>
                             <div class="form-group">
