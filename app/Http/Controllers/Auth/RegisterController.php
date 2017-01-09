@@ -94,7 +94,8 @@ class RegisterController extends Controller
                 'name'=>$socialUser->getName(),
                 'email'=>$socialUser->getEmail(),
             ]);
-        auth()->login($user);
-        return redirect()->to('/home');
+
+        app('App\Http\Controllers\LoginController')->init_session($user);
+        return redirect()->to('/dashboard');
     }
 }

@@ -11,19 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','LoginController@index');
 
 Route::get('maqueta', function () {
     return view('profile');
 });
 Route::get('submenu', function () {
-    return view('submenu');
+    return view('submenu.submenu');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::post('/login','LoginController@logear');
+Route::post('/registerUser','RegisterController@registerUser');
+Route::get('/dashboard', 'DashboardController@index');
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
+Route::get('/logout','LoginController@logout');

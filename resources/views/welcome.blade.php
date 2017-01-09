@@ -56,20 +56,29 @@
                                         @endif
                                     </div>
                                 </div>
+                                @if(Session::get('error'))
+                                    <div class="col-lg-6 col-lg-offset-4">
+                                        <div class="alert alert-danger">
+                                            <strong>¡Credenciales Incorrectas!</strong>&nbsp;&nbsp;{{Session::get('error')}}
+                                        </div>
+                                    </div>
+                                @endif
                             </form>
+
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <button type="button" class="btn btn-success" onclick="login();">
                                         Ingresar&nbsp;&nbsp;<i class="fa fa-key"></i>
                                     </button>
-                                     <button class="btn btn-primary">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button><br><br>
-                                    <a class="btn  btn-social btn-block btn-facebook" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-facebook"></i> Ingresar con Facebook
-                                  </a><br><a class="btn  btn-social btn-block btn-twitter" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-twitter"></i> Ingresar con twitter
-                                  </a><br>
-                                  <a class="btn  btn-social btn-block btn-google" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-google"></i> Ingresar con google
+                                     <button class="btn btn-primary" onclick="register();">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button><br><br>
+                                   <strong>¡Ingresa con tus Redes Sociales!</strong><br>
+                                    <a class="btn  btn-social  btn-facebook" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-facebook"></i>Facebook
+                                  </a>&nbsp;<a class="btn  btn-social  btn-twitter" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-twitter"></i>Twitter
+                                  </a>&nbsp;
+                                  <a class="btn  btn-social btn-google" href="{{url('auth/facebook')}}">
+                                    <i class="fa fa-google"></i>Google
                                   </a>
                                 </div>
                             </div>
@@ -90,6 +99,9 @@
     </body>
 </html>
 <script>
+    function register(){
+        window.open("{{URL::to('/register')}}","_self");
+    }
     function login(){
         $('#form').submit();
     }
