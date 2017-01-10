@@ -19,6 +19,7 @@ class CreateTeamTournamentPlayersTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->integer('number');
+            $table->integer('captain')->default(0);
             $table->integer('active')->default(1);
             $table->timestamps();
             $table->foreign('teamTournament_id')->references('id')->on('team_tournament');
