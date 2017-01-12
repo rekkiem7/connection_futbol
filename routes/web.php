@@ -16,9 +16,7 @@ Route::get('/','LoginController@index');
 Route::get('maqueta', function () {
     return view('profile');
 });
-Route::get('submenu', function () {
-    return view('submenu.submenu');
-});
+
 
 Auth::routes();
 

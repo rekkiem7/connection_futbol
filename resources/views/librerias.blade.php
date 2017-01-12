@@ -1,7 +1,7 @@
 <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<!--<link href="{{ asset('/template/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('/template/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />-->
+<link href="{{ asset('/css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/css/animate.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{asset('bootstrap/assets/css/bootstrap.css')}}" rel="stylesheet">
 <link href="{{asset('bootstrap/assets/css/font-awesome.css')}}" rel="stylesheet">

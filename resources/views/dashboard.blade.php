@@ -7,20 +7,22 @@
 
     <title>Laravel</title>
     @include('librerias')
-    <style>
-        body{
-            background-image:url('futbol.jpg');
-            background-repeat:repeat;
-            background-size:15%;
-        }
-    </style>
+    
 
 </head>
 <body>
 <div class="container">
-    <div class="row">
+    <div class="row">        
+       
+            @extends('layouts.entreligas')
+             @section('content')
+
+     
+
+          
         {{Session::get('name').' '.Session::get('lastname')}}
     </div>
 </div>
 </body>
+
 </html>

@@ -10,8 +10,7 @@
 <!--No ocupar este div-->
 	<div class="col-lg-1"></div>
 <!--Sólo ocupar este div-->	
-	<div class="col-lg-10 container">
-		     @extends('submenu.submenu')
+	<div class="col-lg-10 container">		   
 		     @extends('submenu.principalmenu')	
 	</div>
 
