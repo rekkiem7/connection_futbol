@@ -32,8 +32,12 @@ $( document ).click(function() {
 	
 		<div class="content-columnas">
 			<div class="columnas" id="main-content">
-				@extends ('estructura.publicaciones')	
+				@include ('estructura.publicaciones')
+
 			</div>
+			<div >
+				@include('estructura.panelbar')
+			</div>	
 		</div>
 		
 

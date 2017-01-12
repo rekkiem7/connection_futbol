@@ -1,16 +1,28 @@
-<div class="col-lg-2"></div>
-<div class="col-lg-8 columna-public">
-	<p>Estimado (a) Mitchel
- 
-SolucionHost se enorgullece en ofrecer a usted la más amplia y vasta plataforma de documentación en español existente en la actualidad, como empresa hemos comprendido y estudiado las diferentes problemáticas más recurrentes en nuestra comunidad de usuarios y en base a esto se han desarrollado distintos tutoriales, manuales, videos, entre otros, todos en pro de solucionar de forma rápida y efectiva cada una de sus dudas y/o inconvenientes.
- 
-¡ Vamos a ello !
- 
-Para acceder a nuestra plataforma ingresa desde tu navegador de preferencia a: https://docs.solucionhost.cl/  aqui podras encontrar una variada gama de documentos, los cuales están organizados para ofrecer ayuda de forma rápida y eficiente.
- 
-¿ Cómo funciona ?
- 
-Una vez en el portal solo debes escribir palabras claves asociadas a tu consulta, por ejemplo, si deseas obtener información de como configurar tus DNS solo bastaría con escribir “configurar dns” y se mostrará una lista de resultados, en donde, el primer resultado es el que posee mayores coincidencias y de seguro es la respuesta a tu duda.
-</p>
+
+<div class="col-lg-8 columna-public"><br>
+	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
+	<div class="col-lg-9">
+		<strong>Nullam efficitur nisl in massa ultricies</strong>
+		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
+	</div><br><br>
+	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
+	<div class="col-lg-9">
+		<strong>Nullam efficitur nisl in massa ultricies</strong>
+		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
+	</div><br><br>
+	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
+	<div class="col-lg-9">
+		<strong>Nullam efficitur nisl in massa ultricies</strong>
+		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
+	</div><br><br>
+	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
+	<div class="col-lg-9">
+		<strong>Nullam efficitur nisl in massa ultricies</strong>
+		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
+	</div><br><br>
+	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
+	<div class="col-lg-9">
+		<strong>Nullam efficitur nisl in massa ultricies</strong>
+		<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
+	</div><br><br>
 </div>
-<div class="col-lg-2"></div>
