@@ -15,7 +15,7 @@ $( document ).click(function() {
         }
         else {
             $('#sidebar').show();
-            $('#sidebar').animate({ 'width': '210px' }, 'fasta');
+            $('#sidebar').animate({ 'width': '210px' }, 'fast');
             $('#main-content').animate({ 'margin-left': '210px' }, 'slow');
         }
     });
