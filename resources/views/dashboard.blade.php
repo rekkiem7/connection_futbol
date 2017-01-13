@@ -12,15 +12,9 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">        
-       
+    <div class="row">
             @extends('layouts.entreligas')
-             @section('content')
-
-     
-
-          
-        {{Session::get('name').' '.Session::get('lastname')}}
+            @section('content')
     </div>
 </div>
 </body>

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('cellphone');
             $table->string('password');
+            $table->longText('image')->nullable();
             $table->integer('role_id')->unsigned()->nullable();
             $table->integer('active');
             $table->rememberToken();

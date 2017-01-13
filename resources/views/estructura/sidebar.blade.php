@@ -2,11 +2,11 @@
 	<div class="animated zoomInUp">
 		<img class="brand" src="EntreLigas.png" alt="" width="150">
 		<div class="photofile">
-			<img class="img-circle" src="player.jpg" alt="" width="80" height="80">			
+			<img class="img-circle" src="{{asset(Session::get('image'))}}" alt="" width="80" height="80">
 		</div>
 		<div class="nametitle" align="center">
-			<span class="upper">Sergio Chaves</span><br>
-			<span class="lowcasse">Perfil jugador </span>
+			<span class="upper">{{Session::get('name').' '.Session::get('lastname')}}</span><br>
+			<span class="lowcasse">Perfil {{Session::get('role')}} </span>
 			<hr>				
 		</div>
 		<div class="contentbar" >

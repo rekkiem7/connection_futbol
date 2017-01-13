@@ -21,6 +21,7 @@ class TableUserSeeder extends Seeder
         		'email'=>'pbarria.reyes@gmail.com',
         		'cellphone'=>'76631136',
         		'role_id'=>1,
+			 	'image'=>'archives/administrator/profile/1_168444281_20171301.jpg',
         		'active'=>1
         	]); 
     }

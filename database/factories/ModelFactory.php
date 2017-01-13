@@ -30,6 +30,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'lastname' => $faker->name,
         'rut' => $faker->name,
         'name_user' => $faker->name,
+        'image'=>$faker->name,
         'active'=>$faker->name,
     ];
 });
