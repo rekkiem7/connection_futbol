@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Mail;
 class MailController extends Controller
 {
     public function send(Request $request)
@@ -12,10 +12,10 @@ class MailController extends Controller
        $data = $request->all();
  
        //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }}...
-       \Mail::send('emails.message', $data, function($message) use ($request)
+       Mail::send('emails.message', $data, function($message) use ($request)
        {
            //remitente
-           $message->from('entreligasfc@email.com','EntreLigasFC');
+           $message->from('info@entreligas.cl','EntreLigasFC');
  
            //asunto
            $message->subject($request->subject);
