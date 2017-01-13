@@ -22,14 +22,14 @@ class LoginController extends Controller
     public function logear(Request $request)
     {
         Session::put('error',false);
-        $email=$request->input('email');
+        $user_name=$request->input('user');
         $password=$request->input('password');
         $messages = [
-            'email.required' => 'Debes ingresar tu correo electrónico',
+            'user.required' => 'Debes ingresar tu nombre de usuario',
             'password.required'=>'Debes ingresar tu contraseña'
         ];
         $validator = Validator::make($request->all(), [
-            'email' => 'required',
+            'user' => 'required',
             'password' => 'required',
         ],$messages);
         if ($validator->fails()) {
@@ -37,10 +37,10 @@ class LoginController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }else{
-            $user=DB::table('users')->Where('email',$email)->first();
+            $user=DB::table('users')->Where('name_user',$user_name)->first();
             if($user)
             {
-                $userConfirm=DB::table('users')->Where('email',$email)->Where('password',md5($password))->first();
+                $userConfirm=DB::table('users')->Where('name_user',$user_name)->Where('password',md5($password))->first();
                 if($userConfirm)
                 {
                     $this->init_session($userConfirm);
@@ -50,7 +50,7 @@ class LoginController extends Controller
                     return redirect('/');
                 }
             }else{
-                Session::put('error','El correo electrónico ingresado no existe');
+                Session::put('error','El nombre de usuario ingresado no existe');
                 return redirect('/');
             }
         }

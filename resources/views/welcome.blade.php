@@ -31,14 +31,14 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">Correo Electrónico</label>
+                                    <label for="email" class="col-md-4 control-label">Usuario</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" placeholder="Ingresa tu email (Ejemplo: email@dominio.com)" value="{{ old('email') }}" required autofocus>
+                                        <input id="user" type="text" class="form-control" name="user" placeholder="Ingresa tu nombre de usuario" value="{{ old('user') }}" required autofocus>
 
-                                        @if ($errors->has('email'))
+                                        @if ($errors->has('user'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('user') }}</strong>
                                     </span>
                                         @endif
                                     </div>
@@ -59,7 +59,7 @@
                                 @if(Session::get('error'))
                                     <div class="col-lg-6 col-lg-offset-4">
                                         <div class="alert alert-danger">
-                                            <strong>¡Credenciales Incorrectas!</strong>&nbsp;&nbsp;{{Session::get('error')}}
+                                            <i class="fa fa-warning"></i>&nbsp;&nbsp;<strong>¡Credenciales Incorrectas!</strong>&nbsp;&nbsp;{{Session::get('error')}}
                                         </div>
                                     </div>
                                 @endif
@@ -67,18 +67,13 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="button" class="btn btn-success" onclick="login();">
+                                    <center><button type="button" class="btn btn-success" onclick="login();">
                                         Ingresar&nbsp;&nbsp;<i class="fa fa-key"></i>
-                                    </button>
-                                     <button class="btn btn-primary" onclick="register();">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button><br><br>
-                                   <strong>¡Ingresa con tus Redes Sociales!</strong><br>
+                                    </button></center>
+                                     <!--<button class="btn btn-primary" onclick="register();">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button>--><br><br>
+                                   <!--<strong>¡Ingresa con tus Redes Sociales!</strong><br>
                                     <a class="btn  btn-social btn-block btn-facebook" href="{{url('auth/facebook')}}">
                                     <i class="fa fa-facebook"></i>Facebook
-                                  </a><!--&nbsp;<a class="btn  btn-social  btn-twitter" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-twitter"></i>Twitter
-                                  </a>&nbsp;
-                                  <a class="btn  btn-social btn-google" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-google"></i>Google
                                   </a>-->
                                 </div>
                             </div>
