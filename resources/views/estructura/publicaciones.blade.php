@@ -1,5 +1,5 @@
 
-<div class="col-lg-8 columna-public"><br>
+<div class="col-lg-8 columna-public animated zoomInUp"><br>
 	<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
 	<div class="col-lg-9">
 		<strong>Nullam efficitur nisl in massa ultricies</strong>

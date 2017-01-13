@@ -1,4 +1,5 @@
 <div class="rightbar" id="sidebar">
+	<div class="animated zoomInUp">
 		<img class="brand" src="EntreLigas.png" alt="" width="150">
 		<div class="photofile">
 			<img class="img-circle" src="player.jpg" alt="" width="80" height="80">			
@@ -33,6 +34,6 @@
 					</a>
 				</li>	
 			</ul>
-			
-		</div>			
-	</div>
+		</div>	
+	</div>			
+</div>
