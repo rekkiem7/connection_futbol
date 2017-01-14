@@ -35,4 +35,35 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\FormatLeague::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name' => $faker->name,
+        'numberPlayers'=> $faker->name,
+        'places'=> $faker->name,
+        'active' => $faker->name,
+    ];
+});
+
+$factory->define(App\League::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name' => $faker->name,
+        'address' => $faker->name,
+        'format_id' => $faker->name,
+        'escude' => $faker->name,
+        'active' => $faker->name,
+    ];
+});
+
+$factory->define(App\CategoryLeague::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name'=> $faker->name,
+        'league_id'=> $faker->name,
+        'order'=> $faker->name,
+        'active'=> $faker->name,
+    ];
+});
+
 

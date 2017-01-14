@@ -11,9 +11,8 @@
 <link href="{{ asset('/template/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/template/dist/css/skins/_all-skins.css')}}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('/template/dist/css/skins/_all-skins.min.css')}}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('/template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css">
 <script src="{{ asset ('/template/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <script src="{{ asset ('/template/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset ('/template/plugins/rutjs/jquery.Rut.js') }}"></script>
 <script src="{{ asset ('/template/plugins/rutjs/jquery.Rut.min.js') }}"></script>
-<script src="{{ asset ('/template/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+<script src="{{ asset ('/template/plugins/ckeditor/ckeditor.js') }}"></script>

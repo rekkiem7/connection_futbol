@@ -18,6 +18,7 @@ class CreateLeagueTable extends Migration
             $table->string('name')->unique();
             $table->string('address');
             $table->integer('format_id')->unsigned()->nullable();
+            $table->longtext('escude');
             $table->integer('active')->default(1);
             $table->timestamps();
             $table->foreign('format_id')->references('id')->on('format_league');
