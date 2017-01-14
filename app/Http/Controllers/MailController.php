@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 use Session;
+use App\FormatLeague;
+use App\League;
+use App\CategoryLeague;
 class MailController extends Controller
 {
     public function index(){
@@ -12,7 +15,8 @@ class MailController extends Controller
     }
 
     public function writeMail(){
-        return view('emails.writeMail');
+        $leagues=League::Information();
+        return view('emails.writeMail',array('leagues'=>$leagues));
     }
     public function send(Request $request)
        {

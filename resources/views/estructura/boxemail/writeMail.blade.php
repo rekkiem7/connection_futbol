@@ -54,24 +54,32 @@
                 <div id="myCarousel" class="carousel slide" data-interval="false">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        @if($leagues)
+                            @for($i=0;$i<count($leagues);$i++)
+                                @if($i==0)
+                                    <li data-target="#myCarousel" data-slide-to="{{$i}}" class="active"></li>
+                                @else
+                                    <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+                                @endif
+                            @endfor
+                        @endif
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="{{asset('/archives/leagues/premierLegue.jpg')}}" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="{{asset('/archives/leagues/ligabbva.jpg')}}" alt="Chania">
-                        </div>
-
-                        <div class="item">
-                            <img src="{{asset('/archives/leagues/bundesliga.jpg')}}" alt="Flower">
-                        </div>
+                        @if($leagues)
+                            @for($i=0;$i<count($leagues);$i++)
+                                @if($i==0)
+                                    <div class="item active">
+                                        <img src="{{asset($leagues[$i]->escude)}}" alt="Chania">
+                                    </div>
+                                @else
+                                <div class="item">
+                                    <img src="{{asset($leagues[$i]->escude)}}" alt="Chania">
+                                </div>
+                                @endif
+                            @endfor
+                        @endif
                     </div>
 
                     <!-- Left and right controls -->
