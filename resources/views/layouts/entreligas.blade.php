@@ -33,7 +33,6 @@ $( document ).click(function() {
 		<div class="content-columnas">
 			<div class="columnas" id="main-content">
 				@include ('estructura.publicaciones')
-
 			</div>
 			<div >
 				@include('estructura.panelbar')

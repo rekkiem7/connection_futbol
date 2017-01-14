@@ -26,10 +26,8 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('/logout','LoginController@logout');
-Route::get('email',function(){
-	return view('form_email');
-});
-
+Route::get('/emails','MailController@index');
+Route::get('/writeMail','MailController@writeMail');
 
 
 Route::post('send', ['as' => 'send', 'uses' => 'MailController@send'] );

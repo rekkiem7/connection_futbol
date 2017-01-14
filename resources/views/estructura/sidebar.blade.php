@@ -21,7 +21,7 @@
 						<i class="fa fa-bar-chart" aria-hidden="true"></i><span>Estadísticas</span>
 					</a>
 				</li><li>
-					<a href="#">
+					<a href="{{url('emails')}}">
 						<i class="fa fa-envelope" aria-hidden="true"></i><span>Mensajes</span>
 					</a>
 				</li><li>
@@ -32,7 +32,7 @@
 					<a href="#">
 						<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Fechas</span>
 					</a>
-				</li>	
+				</li>
 			</ul>
 		</div>	
 	</div>			
