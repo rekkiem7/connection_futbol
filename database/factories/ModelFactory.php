@@ -66,4 +66,43 @@ $factory->define(App\CategoryLeague::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Team::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name'=> $faker->name,
+        'escude'=> $faker->name,
+        'description'=> $faker->name,
+        'active'=> $faker->name,
+    ];
+});
+
+$factory->define(App\FormatTournament::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'name'=> $faker->name,
+        'months'=> $faker->name,
+        'active'=> $faker->name,
+    ];
+});
+
+$factory->define(App\Tournament::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'league_id'=> $faker->name,
+        'category_id'=> $faker->name,
+        'formatTournament_id'=>$faker->name,
+        'year'=> $faker->name,
+        'active'=> $faker->name,
+    ];
+});
+
+$factory->define(App\TeamTournament::class, function (Faker\Generator $faker) {
+    return [
+        'id' => $faker->name,
+        'team_id'=>$faker->name,
+        'tournament_id'=>$faker->name,
+        'active'=> $faker->name,
+    ];
+});
+
 

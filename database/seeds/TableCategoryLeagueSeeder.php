@@ -12,45 +12,40 @@ class TableCategoryLeagueSeeder extends Seeder
     public function run()
     {
         factory(App\CategoryLeague::class)->create([
-            'name'=>'Primera',
+            'name'=>'Junior A',
             'league_id'=>1,
             'order'=>1,
             'active'=>1
         ]);
 
         factory(App\CategoryLeague::class)->create([
-            'name'=>'Segunda',
+            'name'=>'Junior B',
             'league_id'=>1,
             'order'=>2,
-            'active'=>1
-        ]);
-
-        factory(App\CategoryLeague::class)->create([
-            'name'=>'Tercera',
-            'league_id'=>1,
-            'order'=>3,
             'active'=>1
         ]);
 
         factory(App\CategoryLeague::class)->create([
             'name'=>'Senior',
-            'league_id'=>2,
-            'order'=>1,
-            'active'=>1
-        ]);
-
-        factory(App\CategoryLeague::class)->create([
-            'name'=>'Media',
-            'league_id'=>2,
-            'order'=>2,
+            'league_id'=>1,
+            'order'=>3,
             'active'=>1
         ]);
 
         factory(App\CategoryLeague::class)->create([
             'name'=>'Junior',
             'league_id'=>2,
-            'order'=>3,
+            'order'=>1,
             'active'=>1
         ]);
+
+        factory(App\CategoryLeague::class)->create([
+            'name'=>'Senior',
+            'league_id'=>2,
+            'order'=>2,
+            'active'=>1
+        ]);
+
+
     }
 }

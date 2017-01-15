@@ -1,6 +1,11 @@
 <style>
     #myCarousel{
         background-color: #000000;
+
+    }
+
+    .custom {
+        width: 130px !important;
     }
     /*
     #myCarousel{
@@ -8,6 +13,7 @@
     }*/
 
 </style>
+<input type="hidden" name="url" id="url" value="{{url('/')}}"/>
 <div class="col-md-8 columna-public animated zoomInUp"><br>
     <div class="box box-danger">
     <div class="box-header with-border">
@@ -34,16 +40,17 @@
             <div class="form-group">
                 <button class="btn btn-danger"  onclick="searchTeam();"><i class="fa fa-search"></i>&nbsp;&nbsp;Buscar Equipo</button>
             </div>
+            <div id="preselection" name="preselection" style="display:none">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="info-box bg-red">
                     <span class="info-box-icon"><i class="fa fa-futbol-o"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">LIGA</span>
-                        <span class="info-box-number">BBVA (Senior)</span>
+                        <span class="info-box-number" id="name_league"></span>
                         <div class="progress">
                             <div class="progress-bar" style="width: 100%"></div>
                         </div>
-                      <span class="progress-description">
+                      <span class="progress-description" id="format_league">
                         Futbol
                       </span>
                     </div>
@@ -67,6 +74,7 @@
                     <!-- /.info-box-content -->
                 </div>
             </div>
+            </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="body" class="control-label">Mensaje:</label>
@@ -86,7 +94,7 @@
     <div class="modal-dialog">
         <div class="modal-content animated zoomInUp">
             <div class="modal-header">
-                <h4 class="modal-title">Equipos</h4>
+                <h4 class="modal-title">Ligas</h4>
             </div>
             <div class="modal-body" >
                 <center>
@@ -138,10 +146,8 @@
                     </center>
                 </div>
                 <div id="category_div">
-
-
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><label for="category" class="control-label">Categoria:</label></div>
-                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"><select class="form-control" id="category" name="category">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"><select class="form-control" id="category" name="category" onchange="select_category();">
                         @if($leagues[0]->CategoryLeague)
                             @foreach($leagues[0]->CategoryLeague as $c)
                                 <option value="{{$c->id}}">{{$c->name}}</option>
@@ -150,13 +156,40 @@
                             <option value="0">Sin categoria</option>
                         @endif
                     </select>
-                    </div><br>
-
-
+                    </div><br><br>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><label for="category" class="control-label">Campeonato:</label></div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div id="tournament">
+                            @if($leagues[0]->CategoryLeague[0]->Tournament)
+                                {{$leagues[0]->CategoryLeague[0]->Tournament->FormatTournament->name}}
+                            @else
+                                Sin campeonato activo
+                            @endif
+                        </div>
+                    </div>
                 </div>
-                <div><br>
-                    <center><button class="btn btn-primary"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;Elegir</button></center>
-                </div>
+            </div><br>
+            <input type="hidden" name="league_selected" id="league_selected" value="{{$leagues[0]->id}}"/>
+            <input type="hidden" name="nameleague_selected" id="nameleague_selected" value="{{$leagues[0]->name}}"/>
+            <input type="hidden" name="category_selected" id="category_selected" value="{{$leagues[0]->CategoryLeague[0]->id}}"/>
+            <input type="hidden" name="tournament_selected" id="tournament_selected" value="{{$leagues[0]->CategoryLeague[0]->Tournament->id}}"/>
+            <center><button class="btn btn-primary pull-center" onclick="select_league()"><i class="fa fa-futbol-o"></i>&nbsp;&nbsp;Elegir</button></center><br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><span class="fa fa-remove"></span> Cerrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal modal-default fade" id="Teams">
+    <div class="modal-dialog">
+        <div class="modal-content animated zoomInUp">
+            <div class="modal-header">
+                <h4 class="modal-title">Equipos</h4>
+            </div>
+            <div class="modal-body" id="team_body">
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-right" data-dismiss="modal"><span class="fa fa-remove"></span> Cerrar</button>
@@ -191,6 +224,7 @@
         {
             if(option==1) {
                 if (leagues2[i]["id"] == nextImage) {
+                    $('#league_selected').val(nextImage);
                     name=leagues2[i]["name"];
                     format=leagues2[i]["FormatLeague"]["name"];
                     players=leagues2[i]["FormatLeague"]["numberPlayers"];
@@ -199,16 +233,22 @@
 
                     if(leagues2[i]["CategoryLeague"].length>0)
                     {
+                        $('#category_selected').val(leagues2[i]["CategoryLeague"][0]["id"]);
+                        $('#nameleague_selected').val(leagues2[i]["name"]+'('+leagues2[i]["CategoryLeague"][0]["name"]+')');
                         for(var t=0;t<leagues2[i]["CategoryLeague"].length;t++)
                         {
                             $("#category").append(new Option(leagues2[i]["CategoryLeague"][t]["name"], leagues2[i]["CategoryLeague"][t]["id"]));
                         }
                     }else{
                         $("#category").append(new Option('Sin categoria', 0));
+                        $('#category_selected').val(0);
+                        $('#nameleague_selected').val(leagues2[i]["name"]);
                     }
                 }
             }else{
                 if (leagues2[i]["id"] == prevImage) {
+                    $('#league_selected').val(prevImage);
+                    $('#nameleague_selected').val(leagues2[i]["name");
                     name=leagues2[i]["name"];
                     format=leagues2[i]["FormatLeague"]["name"];
                     players=leagues2[i]["FormatLeague"]["numberPlayers"];
@@ -216,6 +256,8 @@
                     $('#category').empty();
                     if(leagues2[i]["CategoryLeague"].length>0)
                     {
+                        $('#category_selected').val(leagues2[i]["CategoryLeague"][0]["id"]);
+                        $('#nameleague_selected').val(leagues2[i]["name"]+'('+leagues2[i]["CategoryLeague"][0]["name"]+')');
                         for(var t=0;t<leagues2[i]["CategoryLeague"].length;t++)
                         {
 
@@ -223,6 +265,8 @@
                         }
                     }else{
                         $("#category").append(new Option('Sin categoria', 0));
+                        $('#category_selected').val(0);
+                        $('#nameleague_selected').val(leagues2[i]["name"]);
                     }
                 }
             }
@@ -238,6 +282,71 @@
     function searchTeam()
     {
         $('#leagueTeam').appendTo("body").modal('show');
+    }
+
+    function select_category()
+    {
+        var c=$('#category').val();
+        $('#category_selected').val(c);
+    }
+
+    function select_league()
+    {
+        var url=$('#url').val();
+        $('#leagueTeam').modal('hide');
+        var l=$('#league_selected').val();
+        var c=$('#category_selected').val();
+        var t=$('#tournament_selected').val();
+        var teams=new Array();
+        for(var i=0;i<leagues.length;i++)
+        {
+            if(leagues[i]["id"]==l)
+            {
+                if(leagues[i]["CategoryLeague"])
+                {
+                    for(var y=0;y<leagues[i]["CategoryLeague"].length;y++)
+                    {
+                        if(leagues[i]["CategoryLeague"][y]["id"]==c)
+                        {
+                            if(leagues[i]["CategoryLeague"][y]["Tournament"] && leagues[i]["CategoryLeague"][y]["Tournament"]["id"]==t)
+                            {
+                               if(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"])
+                               {
+                                   var salida="<h4>Selecciona el equipo para realizar la invitación</h4>";
+                                   salida+='<div class="table-responsive"><table><tr>';
+                                   for(var z=0;z<leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"].length;z++)
+                                   {
+                                        salida+='<td style="padding-top:10px"><button class="btn btn-primary custom" onclick=select_team('+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["id"]+',"'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"])+'","'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"])+'",'+l+','+c+','+t+')><img src="'+url+'/'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"]+'" width="25px" height="25px"><br>'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"].toUpperCase()+'</button>&nbsp;&nbsp;</td>';
+
+                                        if((z+1)%4==0 && z!=leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"].length-1)
+                                        {
+                                            salida+='</tr><tr>';
+                                        }
+
+                                       if(z==leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"].length-1)
+                                       {
+                                           salida+='</tr>';
+                                       }
+                                   }
+                                   salida+='</table></div>'
+                                   $('#team_body').html(salida);
+                                   $('#Teams').appendTo("body").modal('show');
+                               }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    function select_team(id,name,escude,league,category,tournament)
+    {
+        alert(id);
+        name=decodeURIComponent(name);
+        escude=decodeURIComponent(escude);
+        
     }
 
     $(function () {

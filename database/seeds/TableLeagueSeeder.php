@@ -12,26 +12,18 @@ class TableLeagueSeeder extends Seeder
     public function run()
     {
         factory(App\League::class)->create([
-            'name'=>'Premier League',
-            'address'=>'Inglaterra',
+            'name'=>'Liga San José',
+            'address'=>'Cerro Lipangue, camino a Lampa.',
             'format_id'=>1,
-            'escude'=>'archives/leagues/premierLegue.jpg',
+            'escude'=>'archives/leagues/ligaSanJose.png',
             'active'=>1
         ]);
 
         factory(App\League::class)->create([
-            'name'=>'Liga BBVA',
-            'address'=>'España',
+            'name'=>'Liga San Pedro',
+            'address'=>'Avenida Padre Hurtado 2650 , Las Condes Santiago',
             'format_id'=>1,
-            'escude'=>'archives/leagues/ligabbva.jpg',
-            'active'=>1
-        ]);
-
-        factory(App\League::class)->create([
-            'name'=>'Bundesliga',
-            'address'=>'Alemania',
-            'format_id'=>1,
-            'escude'=>'archives/leagues/bundesliga.jpg',
+            'escude'=>'archives/leagues/ligaSanPedro.png',
             'active'=>1
         ]);
     }

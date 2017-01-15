@@ -17,7 +17,7 @@ class CreateTeamTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('escude');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->integer('active')->default(1);
             $table->timestamps();
         });
