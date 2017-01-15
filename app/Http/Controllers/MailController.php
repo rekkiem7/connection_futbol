@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use Mockery\CountValidator\Exception;
 use Session;
 use App\FormatLeague;
 use App\League;
@@ -15,8 +16,19 @@ class MailController extends Controller
     }
 
     public function writeMail(){
-        $leagues=League::Information();
-        return view('emails.writeMail',array('leagues'=>$leagues));
+        try{
+            if(Session::get('login')==true)
+            {
+                $leagues=League::Information();
+                return view('emails.writeMail',array('leagues'=>$leagues));
+            }else{
+                return redirect('/');
+            }
+        }catch(Exception $e)
+        {
+
+        }
+
     }
     public function send(Request $request)
        {
