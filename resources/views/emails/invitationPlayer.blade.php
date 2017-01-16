@@ -58,12 +58,17 @@
                                                      </tr>
                                                 </table>
                                                 <table width="100%" height="80"  align="center" cellpadding="0" cellspacing="0" style="background:#f0f0f0;padding:10px;"">
-                                                <?php $league=base64_encode($league);?>
+                                                <?php $league=base64_encode($league);
+                                                      $category=base64_encode($category);
+                                                      $team=base64_encode($team);
+                                                      $tournament=base64_encode($tournament); 
+                                                      $params=base64_encode($type).'|'.$league.'|'.$category.'|'.$team.'|'.$tournament; 
+                                                ?>
                                                     <tbody>
                                                         <tr>
                                                             <td align="center">
                                                                 <br><br>                                
-                                                                <a href="{{url('/register/'.$league)}}" style="background-color:#208CD5;color:#ffffff;border:none;padding:10px; border-radius:5px;width:250px;font-size:18px;text-decoration:none;font-family:arial;">Confirmar</a>
+                                                                <a href="{{url('/register/'.$params)}}" style="background-color:#208CD5;color:#ffffff;border:none;padding:10px; border-radius:5px;width:250px;font-size:18px;text-decoration:none;font-family:arial;">Confirmar</a>
                                                             </td>
                                                         </tr>
                                                     </tbody>    

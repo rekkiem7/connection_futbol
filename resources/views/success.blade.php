@@ -7,12 +7,12 @@
    <div class="row">
        <div class="col col-md-6 col-md-offset-3"   >
            <div class="panel panel-default">
-             <div class="panel-heading"><h3 class="panel-title">Atencion!!!</h3></div>
+             <div class="panel-heading"><h3 class="panel-title">Registro Exitoso</h3></div>
              <div class="panel-body">
-               <h4>Tu mensaje ha sido enviado, pronto responderemos a tu solicitud.</h4>
+               <h4>Ahora puedes ingresar a EntreLigas FC, con tu usuario y contraseña indicados en el registro</h4>
              </div>
              <div class="panel-footer">
-                 <a href="{{ route('contact') }}" class="btn btn-primary btn-xs">Volver</a>
+                 <a href="{{ url('/') }}" class="btn btn-primary btn-xs">Iniciar Sesión</a>
                </div>
            </div>
         </div>

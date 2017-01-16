@@ -30,13 +30,13 @@
             </div>
             <div class="form-group">
                 <label for="type" class="control-label">Tipo Email:</label>
-                <select id="type" class="form-control" name="type" required >
+                <select id="type" class="form-control" name="type" required  onchange="select_type();">
                     <option value="0">Normal</option>
                     <option value="1">Invitación al Capitán</option>
                     <option value="2">Invitación al Jugador</option>
                 </select>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="button_search_team" style="display:none">
                 <button class="btn btn-danger"  onclick="searchTeam();"><i class="fa fa-search"></i>&nbsp;&nbsp;Buscar Equipo</button>
             </div>
             <div id="preselection" name="preselection" style="display:none">
@@ -77,8 +77,8 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="form-group">
                 <label for="body" class="control-label">Mensaje:</label>
+
                 <textarea id="body" name="body" rows="10" cols="80">
-                                            This is my textarea to be replaced with CKEditor.
                 </textarea>
             </div>
             <div class="form-group">
@@ -402,10 +402,24 @@
             data:{email:email,subject:subject,type:type,body:message,team:selected_team,league:selected_league,category:selected_category,tournament:selected_tournament,teamName:selected_team_name,leagueName:selected_league_name,categoryName:selected_category_name,teamEscude:selected_team_escude},
             success:function(data)
             {
-
+                if(data==1)
+                {
+                    swal('Mensaje Enviado','El correo se ha enviado exitosamente','success');
+                }
             }
         });
+    }
 
+    function select_type(){
+        if($('#type').val()==0)
+        {
+            $('#button_search_team').slideUp();
+            $('#preselection').slideUp();
+        }else{
+            $('#button_search_team').slideDown();
+            
+        }
+        
     }
 
     $(function () {
