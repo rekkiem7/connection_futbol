@@ -14,7 +14,7 @@ class TableUserSeeder extends Seeder
          factory(App\User::class)->create([
         		'name'=>'Pablo Andrés',
         		'lastname'=>'Barría Reyes',
-        		'rut'=>'16844428-1',
+        		'rut'=>'16.844.428-1',
         		'name_user'=>'rekkiem',
         		'password'=>md5('12345'),
         		'facebook_id'=>null,

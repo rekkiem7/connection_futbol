@@ -18,7 +18,7 @@ class CreateTeamTournamentPlayersTable extends Migration
             $table->integer('teamTournament_id')->unsigned()->nullable();
             $table->string('name');
             $table->string('lastname');
-            $table->integer('number');
+            $table->integer('number')->nullable();
             $table->integer('captain')->default(0);
             $table->integer('active')->default(1);
             $table->timestamps();

@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        <title>EntreLigas Online</title>
         @include('librerias')
         <style>
         body{
@@ -14,22 +13,21 @@
         background-size:15%;
         }
         </style>
-    
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2 animated fadeInDown">
+                <div class="col-md-6 col-md-offset-3 animated fadeInDown">
                     <div class="login-logo">
                         <a href="#" style="color:#ffffff"><b ><img src="{{asset('EntreLigas.png')}}" width="40%"/></b></a>
                     </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Iniciar Sesión</div>
-                        <div class="panel-body">
-
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Iniciar Sesión</h3>
+                        </div>
+                        <div class="box-body">
                             <form class="form-horizontal" role="form" id="form" method="POST" action="{{ url('/login') }}">
                                 {{ csrf_field() }}
-
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                     <label for="email" class="col-md-4 control-label">Usuario</label>
 
@@ -64,35 +62,26 @@
                                     </div>
                                 @endif
                             </form>
-
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
                                     <center><button type="button" class="btn btn-success" onclick="login();">
                                         Ingresar&nbsp;&nbsp;<i class="fa fa-key"></i>
                                     </button></center>
-                                     <!--<button class="btn btn-primary" onclick="register();">Registrarse&nbsp;&nbsp;<i class="fa fa-user"></i></button>--><br><br>
-                                   <!--<strong>¡Ingresa con tus Redes Sociales!</strong><br>
-                                    <a class="btn  btn-social btn-block btn-facebook" href="{{url('auth/facebook')}}">
-                                    <i class="fa fa-facebook"></i>Facebook
-                                  </a>-->
                                 </div>
                             </div>
                             <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                    <center> <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                         ¿Olvidaste la contraseña?
-                                    </a></center><br>
-                                    
+                                    </a></center><br> 
                             </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-    </body>
-</html>
+        </body>
+    </html>
 <script>
     function register(){
         window.open("{{URL::to('/register')}}","_self");
