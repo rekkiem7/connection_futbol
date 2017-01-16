@@ -30,8 +30,8 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('/logout','LoginController@logout');
-Route::get('/emawriteMailils','MailController@index');
-Route::get('/','MailController@writeMail');
+Route::get('/emails','MailController@index');
+Route::get('/writeMail','MailController@writeMail');
 Route::get('/register/{params}','RegisterController@index');
 
 
