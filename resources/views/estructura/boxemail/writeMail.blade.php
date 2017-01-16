@@ -20,7 +20,6 @@
         <h3 class="box-title"><strong>Redactar correo</strong></h3>
     </div>
         <div class="box-body">
-
             <div class="form-group">
                 <label for="email" class="control-label">Para:</label>
                 <input id="email" type="email" class="form-control" name="email" required autofocus>
@@ -30,8 +29,8 @@
                 <input id="subject" type="text" class="form-control" name="subject" required >
             </div>
             <div class="form-group">
-                <label for="tipo" class="control-label">Tipo Email:</label>
-                <select id="tipo" class="form-control" name="tipo" required >
+                <label for="type" class="control-label">Tipo Email:</label>
+                <select id="type" class="form-control" name="type" required >
                     <option value="0">Normal</option>
                     <option value="1">Invitación al Capitán</option>
                     <option value="2">Invitación al Jugador</option>
@@ -51,7 +50,7 @@
                             <div class="progress-bar" style="width: 100%"></div>
                         </div>
                       <span class="progress-description" id="format_league">
-                        Futbol
+                        
                       </span>
                     </div>
                     <!-- /.info-box-content -->
@@ -59,10 +58,10 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="info-box bg-aqua">
-                    <span class="info-box-icon"><img src="{{asset('archives/teams/1/escude/1.png')}}" class="img-responsive" /></span>
+                    <span class="info-box-icon" id="teamIcon"></span>
                     <div class="info-box-content">
                         <span class="info-box-text">EQUIPO</span>
-                        <span class="info-box-number">Real Madrid F.C</span>
+                        <span class="info-box-number" id="teamName"></span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: 100%"></div>
@@ -83,7 +82,7 @@
                 </textarea>
             </div>
             <div class="form-group">
-                {!! Form::submit('Enviar', ['class' => 'btn btn-success ' ] ) !!}
+                <button class="btn btn-success" onclick="Send_Email();"><i class="fa fa-send"></i>&nbsp;&nbsp;Enviar</button>
             </div>
             </div>
         </div>
@@ -198,8 +197,17 @@
 
     </div>
 </div>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
     var leagues=<?php echo json_encode($leagues)?>;
+    var selected_league;
+    var selected_category;
+    var selected_tournament;
+    var selected_team;
+    var selected_league_name;
+    var selected_category_name;
+    var selected_team_escude;
+    var selected_team_name;
     function informationLeague(option) {
         var activeSlide = $('.active');
 
@@ -248,7 +256,7 @@
             }else{
                 if (leagues2[i]["id"] == prevImage) {
                     $('#league_selected').val(prevImage);
-                    $('#nameleague_selected').val(leagues2[i]["name");
+                    $('#nameleague_selected').val(leagues2[i]["name"]);
                     name=leagues2[i]["name"];
                     format=leagues2[i]["FormatLeague"]["name"];
                     players=leagues2[i]["FormatLeague"]["numberPlayers"];
@@ -316,7 +324,7 @@
                                    salida+='<div class="table-responsive"><table><tr>';
                                    for(var z=0;z<leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"].length;z++)
                                    {
-                                        salida+='<td style="padding-top:10px"><button class="btn btn-primary custom" onclick=select_team('+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["id"]+',"'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"])+'","'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"])+'",'+l+','+c+','+t+')><img src="'+url+'/'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"]+'" width="25px" height="25px"><br>'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"].toUpperCase()+'</button>&nbsp;&nbsp;</td>';
+                                        salida+='<td style="padding-top:10px"><button class="btn btn-primary custom" onclick=select_team('+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["id"]+',"'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"])+'","'+encodeURIComponent(leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"])+'",'+l+','+c+','+t+')><img src="'+url+'/'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["escude"]+'" width="40px" height="40px"><br>'+leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"][z]["name"].toUpperCase()+'</button>&nbsp;&nbsp;</td>';
 
                                         if((z+1)%4==0 && z!=leagues[i]["CategoryLeague"][y]["Tournament"]["Teams"].length-1)
                                         {
@@ -343,10 +351,61 @@
 
     function select_team(id,name,escude,league,category,tournament)
     {
-        alert(id);
         name=decodeURIComponent(name);
         escude=decodeURIComponent(escude);
-        
+        url_image="{{url('/')}}/"+escude;
+        $('#teamName').html(name);
+        $('#teamIcon').html('<img src="'+url_image+'" width="70" height="70"/>');
+
+        for(var i=0;i<leagues.length;i++)
+        {
+            if(leagues[i]["id"]==league)
+            {
+                selected_league_name=leagues[i]["name"];
+                $('#name_league').html(leagues[i]["name"]);
+                $('#format_league').html(leagues[i]["FormatLeague"]["name"]);
+                if(leagues[i]["CategoryLeague"])
+                {
+                    for(var y=0;y<leagues[i]["CategoryLeague"].length;y++)
+                    {
+                        if(leagues[i]["CategoryLeague"][y]["id"]==category)
+                        {
+                             $('#name_league').append(' ('+leagues[i]["CategoryLeague"][y]["name"]+')');    
+                             selected_category_name=leagues[i]["CategoryLeague"][y]["name"];
+                        }
+                    }
+                }
+            }
+        }
+        selected_team=id;
+        selected_team_name=name;
+        selected_team_escude=escude;
+        selected_league=league;
+        selected_category=category;
+        selected_tournament=tournament;
+        $('#Teams').modal('hide');
+        $('#preselection').slideDown();   
+    }
+
+    function Send_Email()
+    {
+        var email=$('#email').val();
+        var subject=$('#subject').val();
+        var type=$('#type').val();
+        var message=CKEDITOR.instances.body.getData();
+        $.ajax({
+          url: "{{url('/send')}}",
+            type: 'POST',
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{email:email,subject:subject,type:type,body:message,team:selected_team,league:selected_league,category:selected_category,tournament:selected_tournament,teamName:selected_team_name,leagueName:selected_league_name,categoryName:selected_category_name,teamEscude:selected_team_escude},
+            success:function(data)
+            {
+
+            }
+        });
+
     }
 
     $(function () {

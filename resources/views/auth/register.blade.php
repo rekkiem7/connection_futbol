@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>EntreLigas FC</title>
 
     <!-- Fonts -->
 
@@ -29,7 +29,35 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/registerUser') }}">
                         {{ csrf_field() }}
+                        <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3 col-xs-12">
+                        <input type="hidden" name="type" id="type" value="{{$type}}">
+                            @if($team)
+                                <input type="hidden" name="team_id" id="team_id" value="{{$team->id}}"/>
+                                <div class="info-box bg-aqua">
+                                    <span class="info-box-icon"><img src="{{asset($team->escude)}}"></span>
+                                    <div class="info-box-content">
+                                      <span class="info-box-text">Equipo</span>
+                                      <span class="info-box-number">{{$team->name}}</span>
 
+                                      <div class="progress">
+                                        <div class="progress-bar" style="width: 100%"></div>
+                                      </div>
+                                          <span class="progress-description">
+                                            @if($league)
+                                                <input type="hidden" name="league_id" id="league_id" value="{{$league->id}}"/>
+                                                {{$league->name}}
+                                                @if($category)
+                                                &nbsp;&nbsp;({{$category->name}})
+                                                <input type="hidden" name="category_id" id="category_id" value="{{$category->id}}"/>
+                                                @endif
+                                            @endif
+                                          </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                  </div>
+                            @endif
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
@@ -99,7 +127,19 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('name_user') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Usuario</label>
 
+                            <div class="col-md-6">
+                                <input id="name_user" type="text" class="form-control" name="name_user" value="{{ old('name_user') }}" placeholder="Ingresa tu nombre de usuario" required autofocus>
+
+                                @if ($errors->has('name_user'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name_user') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
@@ -119,6 +159,7 @@
                                     Registrar <i class="fa fa-user"></i>
                                 </button>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>

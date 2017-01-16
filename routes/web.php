@@ -17,6 +17,10 @@ Route::get('maqueta', function () {
     return view('profile');
 });
 
+Route::get('correo', function () {
+    return view('emails.message');
+});
+
 
 Auth::routes();
 
@@ -26,8 +30,9 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
 Route::get('/logout','LoginController@logout');
-Route::get('/emails','MailController@index');
-Route::get('/writeMail','MailController@writeMail');
+Route::get('/emawriteMailils','MailController@index');
+Route::get('/','MailController@writeMail');
+Route::get('/register/{params}','RegisterController@index');
 
 
 Route::post('send', ['as' => 'send', 'uses' => 'MailController@send'] );

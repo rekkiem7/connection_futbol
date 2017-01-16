@@ -30,24 +30,29 @@ class MailController extends Controller
         }
 
     }
+
+
+
     public function send(Request $request)
-       {
+    {
            //guarda el valor de los campos enviados desde el form en un array
            $data = $request->all();
-
            //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }}...
-           Mail::send('emails.message', $data, function($message) use ($request)
+           if($request->type==1)
+           {
+             $plantilla='emails.invitationCaptain';
+           }else{
+             $plantilla='emails.invitationPlayer';  
+           }
+           $email=Mail::send($plantilla, $data, function($message) use ($request)
            {
                //remitente
                $message->from('info@entreligas.cl','EntreLigasFC');
-
-               //asunto
                $message->subject($request->subject);
-
-               //receptor
                $message->to($request->email, $request->name);
-
            });
-           return \View::make('success');
-       }
+
+           return 1;
+           //return \View::make('success');
+    }
 }
