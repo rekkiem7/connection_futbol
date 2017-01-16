@@ -197,6 +197,7 @@
 
     </div>
 </div>
+@include('loading')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
     var leagues=<?php echo json_encode($leagues)?>;
@@ -393,6 +394,7 @@
         var subject=$('#subject').val();
         var type=$('#type').val();
         var message=CKEDITOR.instances.body.getData();
+        $('#loading').appendTo("body").modal('show');
         $.ajax({
           url: "{{url('/send')}}",
             type: 'POST',
@@ -402,6 +404,7 @@
             data:{email:email,subject:subject,type:type,body:message,team:selected_team,league:selected_league,category:selected_category,tournament:selected_tournament,teamName:selected_team_name,leagueName:selected_league_name,categoryName:selected_category_name,teamEscude:selected_team_escude},
             success:function(data)
             {
+                $('#loading').modal('hide');
                 if(data==1)
                 {
                     swal('Mensaje Enviado','El correo se ha enviado exitosamente','success');
