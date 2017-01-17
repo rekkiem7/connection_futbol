@@ -18,3 +18,4 @@
 <script src="{{ asset ('/template/plugins/rutjs/jquery.Rut.min.js') }}"></script>
 <script src="{{ asset ('/template/plugins/ckeditor/ckeditor.js') }}"></script>
 <script src="{{ asset ('/template/plugins/sweetalert/dist/sweetalert-dev.js')}}"></script>
+<title>EntreLigas FC</title>

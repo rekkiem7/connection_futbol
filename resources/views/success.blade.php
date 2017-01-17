@@ -1,6 +1,6 @@
 <html>
 <head>
-@include('librerias')
+@include('template.libraries')
 </head>
 <body>
 <div class="container">

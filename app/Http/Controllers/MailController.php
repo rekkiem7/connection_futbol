@@ -40,9 +40,9 @@ class MailController extends Controller
              //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }}...
                if($request->type==1)
                {
-                 $plantilla='emails.invitationCaptain';
+                 $plantilla='emails.templates.invitationCaptain';
                }else{
-                 $plantilla='emails.invitationPlayer';  
+                 $plantilla='emails.templates.invitationPlayer';  
                }
 
                $view = View::make($plantilla)->with($data);
