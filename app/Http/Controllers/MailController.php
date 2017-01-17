@@ -9,6 +9,7 @@ use Session;
 use App\FormatLeague;
 use App\League;
 use App\CategoryLeague;
+use View;
 class MailController extends Controller
 {
     public function index(){
@@ -28,7 +29,6 @@ class MailController extends Controller
         {
 
         }
-
     }
 
 
@@ -40,10 +40,13 @@ class MailController extends Controller
              //se envia el array y la vista lo recibe en llaves individuales {{ $email }} , {{ $subject }}...
                if($request->type==1)
                {
-                 $plantilla='emails.invitationCaptain';
+                 $plantilla='emails.templates.invitationCaptain';
                }else{
-                 $plantilla='emails.invitationPlayer';  
+                 $plantilla='emails.templates.invitationPlayer';  
                }
+
+               $view = View::make($plantilla)->with($data);
+               $contents = $view->render();//contenido del mail en string
                $email=Mail::send($plantilla, $data, function($message) use ($request)
                {
                    //remitente
@@ -51,10 +54,9 @@ class MailController extends Controller
                    $message->subject($request->subject);
                    $message->to($request->email, $request->name);
                });
-
                return 1;
-           }catch(Exception $e){
-              return 0;
+           }catch(\Exception $e){
+              return $e;
            }
     }
 }

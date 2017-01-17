@@ -12,18 +12,7 @@
 */
 
 Route::get('/','LoginController@index');
-
-Route::get('maqueta', function () {
-    return view('profile');
-});
-
-Route::get('correo', function () {
-    return view('emails.message');
-});
-
-
 Auth::routes();
-
 Route::post('/login','LoginController@logear');
 Route::post('/registerUser','RegisterController@registerUser');
 Route::get('/dashboard', 'DashboardController@index');
@@ -33,7 +22,4 @@ Route::get('/logout','LoginController@logout');
 Route::get('/emails','MailController@index');
 Route::get('/writeMail','MailController@writeMail');
 Route::get('/register/{params}','RegisterController@index');
-
-
 Route::post('send', ['as' => 'send', 'uses' => 'MailController@send'] );
-Route::get('contact', ['as' => 'contact', 'uses' => 'MailController@index'] );

@@ -1,4 +1,3 @@
-
 <div class="col-lg-8 columna-public animated zoomInUp"><br>
 	<div class="box box-danger">
         <div class="box-header with-border">
