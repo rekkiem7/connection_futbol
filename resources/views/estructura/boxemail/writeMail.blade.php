@@ -408,6 +408,9 @@
                 if(data==1)
                 {
                     swal('Mensaje Enviado','El correo se ha enviado exitosamente','success');
+                }else{
+                    swal('Error','Se ha producido un problema al enviar el correo','error');
+                    console.log(data);
                 }
             }
         });

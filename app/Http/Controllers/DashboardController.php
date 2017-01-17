@@ -8,6 +8,12 @@ use Session;
 class DashboardController extends Controller
 {
     public function index(){
-        return view('dashboard');
+       
+        if(Session::get('login'))
+        {
+        	 return view('dashboard');  
+        }else{
+            return redirect()->to('/');
+        }
     }
 }
