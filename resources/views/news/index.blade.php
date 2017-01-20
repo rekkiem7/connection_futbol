@@ -1,64 +1,117 @@
 <div class="col-lg-8 columna-public animated zoomInUp"><br>
-	<div class="box box-danger">
+    <div class="box box-danger">
         <div class="box-header with-border">
-          <h3 class="box-title"><strong>Nullam efficitur nisl in massa ultricies</strong></h3>
+            <div class="user-block">
+                <img class="img-circle img-bordered-sm" src="{{asset(Session::get('image'))}}" alt="user image">
+                                <span class="username">
+                                  <a href="#">{{Session::get('name')}} {{Session::get('lastname')}}</a>
+                                  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                                </span>
+                <span class="description">Publicado el &nbsp;&nbsp;<i class="fa fa-calendar"></i>&nbsp;&nbsp;20 de Enero 2017&nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;&nbsp;7:30  </span>
+            </div>
         </div>
         <div class="box-body">
-			<div class="row margin-bottom">
+            <div class="post">
+                <div class="row margin-bottom">
                     <div class="col-sm-6">
-                      <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                        <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                                <br>
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                                <br>
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
                         </div>
-                        <!-- /.col -->
-                        <div class="col-sm-6">
-                          <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
+                        <!-- /.row -->
                     </div>
                     <!-- /.col -->
-                  </div>
-			<div class="col-lg-9">
-				<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
-			</div>
-		</div>	
-	</div>	
-</div>
+                </div>
+                <p>
+                    Lorem ipsum represents a long-held tradition for designers,
+                    typographers and the like. Some people hate it and argue for
+                    its demise, but others ignore the hate as they create awesome
+                    tools to help create filler text for everyone from bacon lovers
+                    to Charlie Sheen fans.
+                </p>
+                <ul class="list-inline">
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Compartir</a></li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Me gusta</a>
+                    </li>
+                    <li class="pull-right">
+                        <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentarios
+                            (5)</a></li>
+                </ul>
 
-<div class="col-lg-8 columna-public animated zoomInUp"><br>
-	<div class="box box-danger">
+                <input class="form-control input-sm" type="text" placeholder="Type a comment">
+            </div>
+        </div>
+    </div>
+    <div class="box box-danger">
         <div class="box-header with-border">
-          <h3 class="box-title"><strong>Nullam efficitur nisl in massa ultricies</strong></h3>
+            <div class="user-block">
+                <img class="img-circle img-bordered-sm" src="{{asset(Session::get('image'))}}" alt="user image">
+                                <span class="username">
+                                  <a href="#">{{Session::get('name')}} {{Session::get('lastname')}}</a>
+                                  <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
+                                </span>
+                <span class="description">Publicado el &nbsp;&nbsp;<i class="fa fa-calendar"></i>&nbsp;&nbsp;20 de Enero 2017&nbsp;&nbsp;<i class="fa fa-clock-o"></i>&nbsp;&nbsp;7:30  </span>
+            </div>
         </div>
         <div class="box-body">
-			<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
-			<div class="col-lg-9">
-				<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
-			</div>
-		</div>	
-	</div>	
+            <div class="post">
+                <div class="row margin-bottom">
+                    <div class="col-sm-6">
+                        <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                                <br>
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-sm-6">
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                                <br>
+                                <img class="img-responsive" src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="Photo">
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <p>
+                    Lorem ipsum represents a long-held tradition for designers,
+                    typographers and the like. Some people hate it and argue for
+                    its demise, but others ignore the hate as they create awesome
+                    tools to help create filler text for everyone from bacon lovers
+                    to Charlie Sheen fans.
+                </p>
+                <ul class="list-inline">
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Compartir</a></li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Me gusta</a>
+                    </li>
+                    <li class="pull-right">
+                        <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentarios
+                            (5)</a></li>
+                </ul>
+
+                <input class="form-control input-sm" type="text" placeholder="Type a comment">
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="col-lg-8 columna-public animated zoomInUp"><br>
-	<div class="box box-danger">
-        <div class="box-header with-border">
-          <h3 class="box-title"><strong>Nullam efficitur nisl in massa ultricies</strong></h3>
-        </div>
-        <div class="box-body">
-			<div class="col-lg-3"><br><img src="http://entreligas.cl/wp-content/uploads/2016/12/Captura-de-pantalla-2016-12-15-a-las-18.14.50-611x300.png" alt="" width="160"></div>
-			<div class="col-lg-9">
-				<p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut fermentum ante. Suspendisse sed auctor nunc. Cras luctus, ipsum commodo rhoncus facilisis, turpis magna blandit metus, eget feugiat ex massa quis lacus. Praesent nec velit eu lacus ullamcorper efficitur in in augue. </p>
-			</div>
-		</div>	
-	</div>	
-</div>
