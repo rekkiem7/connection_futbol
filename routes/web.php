@@ -23,3 +23,4 @@ Route::get('/emails','MailController@index');
 Route::get('/writeMail','MailController@writeMail');
 Route::get('/register/{params}','RegisterController@index');
 Route::post('send', ['as' => 'send', 'uses' => 'MailController@send'] );
+Route::get('templatePlayers','TemplatePlayersController@index');

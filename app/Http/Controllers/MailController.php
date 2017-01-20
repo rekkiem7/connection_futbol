@@ -56,7 +56,7 @@ class MailController extends Controller
                });
                return 1;
            }catch(\Exception $e){
-              return $e;
+              echo "aqui";
            }
     }
 }

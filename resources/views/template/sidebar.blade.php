@@ -1,6 +1,6 @@
 <div class="rightbar" id="sidebar">
 	<div class="animated zoomInUp">
-		<img class="brand" src="EntreLigas.png" alt="" width="150">
+		<a href="{{url('/')}}"><img class="brand" src="EntreLigas.png" alt="" width="150" ></a>
 		<div class="photofile">
 			<img class="img-circle" src="{{asset(Session::get('image'))}}" alt="" width="80" height="80">
 		</div>
@@ -33,6 +33,13 @@
 						<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Fechas</span>
 					</a>
 				</li>
+				@if(Session::get('role_id')==2)
+					<li>
+						<a href="{{url('/templatePlayers')}}">
+							<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Plantilla de Jugadores</span>
+						</a>
+					</li>
+				@endif
 			</ul>
 		</div>	
 	</div>			
