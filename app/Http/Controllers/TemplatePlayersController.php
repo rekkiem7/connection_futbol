@@ -17,11 +17,12 @@ class TemplatePlayersController extends Controller
                 if($players){
                     for($i=0;$i<count($players);$i++)
                     {
-                        $resultado=DB::table("team_tournament_player")->select("team.id as teamId","team.name as teamName","league.id as leagueId","league.name as leagueName","category_league.id as categoryId","category_league.name as categoryName","team_tournament.id as teamTournamentId","format_tournament.name as formatName","tournament.year","team.escude")
+                        $resultado=DB::table("team_tournament_player")->select("team.id as teamId","team.name as teamName","league.id as leagueId","league.name as leagueName","category_league.id as categoryId","category_league.name as categoryName","team_tournament.id as teamTournamentId","format_tournament.name as formatName","tournament.year","team.escude","format_league.name as formatLeagueName","format_league.places")
                                      ->join("team_tournament","team_tournament_player.teamTournament_id","=","team_tournament.id")
                                      ->join("team","team_tournament.team_id","=","team.id")
                                      ->join("tournament","team_tournament.tournament_id","=","tournament.id")
                                      ->join("league","tournament.league_id","=","league.id")
+                                     ->join("format_league","league.format_id","=","format_league.id")
                                      ->join("category_league","tournament.category_id","=","category_league.id")
                                      ->join("format_tournament","tournament.formatTournament_id","=","format_tournament.id")
                                      ->where("team_tournament_player.id",$players[$i]->player_id)
