@@ -1,5 +1,5 @@
-<div class="col-lg-8 columna-public animated zoomInUp"><br>
-    <div class="box box-danger">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 columna-public animated zoomInUp"><br>
+    <div class="box box-danger ">
         <div class="box-header with-border">
             <div class="user-block">
                 <img class="img-circle img-bordered-sm" src="{{asset(Session::get('image'))}}" alt="user image">

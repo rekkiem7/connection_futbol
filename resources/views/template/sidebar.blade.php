@@ -1,6 +1,6 @@
 <div class="rightbar" id="sidebar">
 	<div class="animated zoomInUp">
-		<img class="brand" src="EntreLigas.png" alt="" width="150">
+		<a href="{{url('/')}}"><img class="brand" src="EntreLigas.png" alt="" width="150" ></a>
 		<div class="photofile">
 			<img class="img-circle" src="{{asset(Session::get('image'))}}" alt="" width="80" height="80">
 		</div>
