@@ -9,6 +9,7 @@ use App\League;
 use App\CategoryLeague;
 use App\TeamTournament;
 use App\TeamTournamentPlayer;
+use App\PlayerUser;
 
 class RegisterController extends Controller
 {
@@ -58,6 +59,12 @@ class RegisterController extends Controller
                     $player->lastname=$request->input('lastname');
                     $player->captain=$captain;
                     $player->save();
+
+                    $playerUser=new PlayerUser();
+                    $playerUser->player_id=$player->id;
+                    $playerUser->user_id=$user->id;
+                    $playerUser->active=1;
+                    $playerUser->save();
                 }
             }
             return view('success');

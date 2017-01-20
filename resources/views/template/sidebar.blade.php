@@ -33,6 +33,13 @@
 						<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Fechas</span>
 					</a>
 				</li>
+				@if(Session::get('role_id')==2)
+					<li>
+						<a href="{{url('/templatePlayers')}}">
+							<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Plantilla de Jugadores</span>
+						</a>
+					</li>
+				@endif
 			</ul>
 		</div>	
 	</div>			
