@@ -27,9 +27,20 @@
                                     @if($team->players)
                                     <div class="table-responsive">
                                         @if(count($team->players)<$team->places)
+                                            <?php $league=base64_encode($team->leagueId);
+                                            $category=base64_encode($team->categoryId);
+                                            $teamx=base64_encode($team->teamId);
+                                            $tournament=base64_encode($team->teamTournamentId);
+                                            $params=base64_encode(2).'|'.$league.'|'.$category.'|'.$teamx.'|'.$tournament;
+                                            ?>
+    </input>
                                         <br>
-                                        <div class="alert alert-danger">
-                                            <i class="fa fa-warning"></i>&nbsp;&nbsp;<strong>¡Plantilla Incompleta!</strong>&nbsp;&nbsp;Sólo tienes <strong>{{count($team->players)}} jugadores inscritos </strong>, te faltan  <strong>{{$team->places - count($team->players)}} cupos</strong>
+                                        <div class="alert alert-danger" width="100%">
+                                            <i class="fa fa-warning"></i>&nbsp;&nbsp;<strong>¡Plantilla Incompleta!</strong>&nbsp;&nbsp;Sólo tienes <strong>{{count($team->players)}} jugadores inscritos </strong>, te faltan  <strong>{{$team->places - count($team->players)}} cupos</strong><br>
+                                            <i class="fa fa-warning"></i>&nbsp;&nbsp;Envía invitaciones a tus jugadores con el siguiente link :<br>
+                                            <input type="hidden" id="link" name="link" value="{{url('/register/'.$params)}}"/>
+                                            <button class="btn btn-primary" id="copiar">Copiar Link</button><span id="copyAnswer"></span>
+
                                         </div>
                                         @endif
                                         <table class="table table-bordered table-striped table-hover">
@@ -88,4 +99,20 @@
             </div>
         </div>
     </div>
+    <script>
+        var playButton = $('#copiar');  // Se obtiene el id del boton clicable
+        playButton.click(function(){    // Acá se pone a escucha el evento click para el boton antes definido
+            copyToClipboard();          // Esto llama a la funcion copyToClipboard() (Está mas abajo)
+        });
+        //fin del boton de copia
+        //Funcion copytoClipboard
+        function copyToClipboard() {
+            var link=$('#link').val();
+            $("body").append("<input type='text' id='temp'>"); // Acá se crea un input dinamicamente con un id para luego asignarle un valor sombreado
+            $("#temp").val(link).select(); // Acá se obtiene el id del boton que hemos creado antes y se le agrega un valor y luego se le sombrea con select(). Para agregar lo que se quiere copiar editas val("EDITAESTOAQUÍ")
+            document.execCommand("copy"); // document.execCommand("copy") manda a copiar el texto seleccionado en el documento
+            $("#temp").remove();
+
+        }
+    </script>
 @stop
