@@ -15,7 +15,7 @@
                                                 <table width="100%" height="80"  align="center" cellpadding="0" cellspacing="0" style="background:#f0f0f0;">
                                                     <tbody>
                                                         <tr >
-                                                            <td bgcolor="#428bca"><center><img src="{{asset('/EntreLigas.png')}}" width="50%" /></center><br>
+                                                            <td bgcolor="#428bca"><center><img src="<?php echo $message->embed($imagen1); ?>" width="50%" /></center><br>
                                                                 <table style="font-size:16px;text-decoration:none;font-family:arial;">
                                                                     <tr>
                                                                         <td style="padding-left:30px;color:#fff;"><strong>De</strong></td><td style="padding-left:10px;color:#fff;">: info@entreligas.cl</td>
@@ -39,7 +39,7 @@
                                                                      <td colspan="2"><strong>Bienvenido</strong>, EntreLigas FC tiene el agrado de invitarte a registrarte y a formar parte de la plantilla de jugadores del siguiente equipo:</td>
                                                                  </tr>
                                                                  <tr>
-                                                                     <td style="padding-top:20px"><img src="{{asset($teamEscude)}}" width="100px"/></td>
+                                                                     <td style="padding-top:20px"><img src="<?php echo $message->embed($teamEscude); ?>" width="100px"/></td>
                                                                      <td><table>
                                                                             <tr>
                                                                                 <td><strong>Equipo {{$teamName}}</strong></td>

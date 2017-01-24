@@ -26,7 +26,7 @@
                                 <div class="panel-body">
                                     @if($team->players)
                                     <div class="table-responsive">
-                                        @if(count($team->players)<$team->places)
+                                        @if(count($team->players)<$team->places && Session::get('role_id')==2)
                                             <?php $league=base64_encode($team->leagueId);
                                             $category=base64_encode($team->categoryId);
                                             $teamx=base64_encode($team->teamId);
@@ -46,18 +46,19 @@
                                         <table class="table table-bordered table-striped table-hover">
                                             <thead>
                                                 <th>N°</th>
-                                                <th>N° Camiseta</th>
+                                                <th>R.U.T</th>
                                                 <th>Nombre</th>
-                                                <th>Posición</th>
+                                                <th>Email</th>
+                                                <th>Celular</th>
                                             </thead>
                                             <tbody>
                                                 <?php $cont=1;?>
                                                 @foreach($team->players as $players)
                                                 <tr>
                                                     <td>{{$cont}}</td>
-                                                    <td align="center">@if($players->number===null)<span class="pull-center badge bg-red"><i class="fa fa-warning"></i>&nbsp;&nbsp;Sin número</span> @else{{$players->number}}@endif</td>
+                                                    <td>{{$players->rut}}</td>
                                                     <td>{{$players->name}} {{$players->lastname}} @if($players->captain==1)&nbsp;&nbsp;<span class="pull-center badge bg-blue"><i class="fa fa-user"></i>&nbsp;&nbsp;Capitán</span>@endif</td>
-                                                    <td>
+                                                    <td><!--
                                                         @if(count($players->positions)>0)
                                                             @foreach($players->positions as $positions)
                                                                 @if($positions->id==1)
@@ -75,7 +76,8 @@
                                                             @endforeach
                                                         @else
                                                             <span class="pull-center badge bg-red"><i class="fa fa-warning"></i>&nbsp;&nbsp;Sin posición</span>
-                                                        @endif</td>
+                                                        @endif --> {{$players->email}}</td>
+                                                    <td>{{$players->cellphone}}</td>
                                                 </tr>
                                                 <?php $cont++;?>
                                                 @endforeach

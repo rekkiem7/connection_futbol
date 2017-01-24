@@ -11,34 +11,24 @@
 		</div>
 		<div class="contentbar" >
 			<ul>
+				@if(Session::get('role_id')==1)
 				<li>
-					<a href="#">
+					<a href="{{url('leagues_information')}}">
 						<i class="fa fa-user"></i><span>Información</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
-						<i class="fa fa-bar-chart" aria-hidden="true"></i><span>Estadísticas</span>
-					</a>
-				</li><li>
 					<a href="{{url('emails')}}">
 						<i class="fa fa-envelope" aria-hidden="true"></i><span>Mensajes</span>
 					</a>
-				</li><li>
-					<a href="#">
+				</li>
+				@endif
+				@if(Session::get('role_id')!=1)
+				<li>
+					<a href="{{url('/templatePlayers')}}">
 						<i class="fa fa-shield" aria-hidden="true">&nbsp;</i><span>Equipo</span>
 					</a>
-				</li><li>
-					<a href="#">
-						<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Fechas</span>
-					</a>
 				</li>
-				@if(Session::get('role_id')==2)
-					<li>
-						<a href="{{url('/templatePlayers')}}">
-							<i class="fa fa-futbol-o" aria-hidden="true"></i><span>Plantilla de Jugadores</span>
-						</a>
-					</li>
 				@endif
 			</ul>
 		</div>	
