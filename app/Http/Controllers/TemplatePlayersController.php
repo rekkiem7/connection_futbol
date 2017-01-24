@@ -33,8 +33,10 @@ class TemplatePlayersController extends Controller
                                      ->orderBy("team_tournament.id","desc")
                                      ->get();
                         if($resultado) {
-                            $playersTeam=DB::table("team_tournament_player")->select("team_tournament_player.*")
+                            $playersTeam=DB::table("team_tournament_player")->select("team_tournament_player.*","users.rut","users.email","users.cellphone")
                                             ->join("team_tournament","team_tournament_player.teamTournament_id","=","team_tournament.id")
+                                            ->join("players_user","team_tournament_player.id","=","players_user.player_id")
+                                            ->join("users","players_user.user_id","=","users.id")
                                             ->where("team_tournament.id",$resultado[0]->teamTournamentId)->get();
                             if($playersTeam)
                             {
