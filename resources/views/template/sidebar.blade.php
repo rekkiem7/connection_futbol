@@ -13,7 +13,7 @@
 			<ul>
 				@if(Session::get('role_id')==1)
 				<li>
-					<a href="#">
+					<a href="{{url('leagues_information')}}">
 						<i class="fa fa-user"></i><span>Información</span>
 					</a>
 				</li>
